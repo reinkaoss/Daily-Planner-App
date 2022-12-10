@@ -8,17 +8,31 @@ var input = $('#input')
 
 $( ".saveBtn" ).on( "click", saveValue);
 function saveValue(){
-    var id = this.parentElement.parentElement.getAttribute("data-hour"); // get the sender's id to save it . 
+    var id = this.parentElement.parentElement.id; // get the sender's id to save it . 
     var val = this.parentElement.parentElement.children[1].children[0].value; // get the value. 
     localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
 }
 
-arrayOfHours = [9, 10, 11, 12, 1, 2, 3, 4, 5];
+arrayOfHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
-/*
-//initialize
-  //load data from localStorage
-  // Data key "time"
+
+function init() {
+  arrayOfHours.forEach(function(el) {
+  var rowEl = $('#' + el);
+  console.log(el);
+    console.log(today.hour())
+  if(el == today.hour()){
+    rowEl.children().eq(1).addClass('present'); 
+  } else if(el < today.hour()){
+    rowEl.children().eq(1).addClass('past');
+  } else if(el > today.hour()){
+    rowEl.children().eq(1).addClass('future');
+  }
+});
+}
+
+init();
+
 
   ///Create Timeslots
   //create array with the hours
@@ -31,15 +45,8 @@ arrayOfHours = [9, 10, 11, 12, 1, 2, 3, 4, 5];
     //create a dataset to keep the hour in the (row)
 
     //style timeslots based on the hour comparing to "today.hour()"
-    if(arrayofHours[i] == today.hour()){
-        //timeblockelement.addClass('past');
-      } else if(arrayofHours[i] == today.hour()){
-        //timeblockelement.addClass('present');
-      } else if(arrayofHours[i] == today.hour()){
-        //timeblockelement.addClass('future');
-      }
+
   
       //append all tags
   
     // add event listener to add local storage when the save button is clicked in specific timeblock.(Data key "time")
-    */
