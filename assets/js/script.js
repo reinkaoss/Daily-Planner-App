@@ -2,88 +2,79 @@ var today =  moment();
 var test = $('.timeblock')
 var hour = $('#hour');
 var currentDay = $('#currentDay').text(today.format("dddd, MMMM Do"));
+var successMsg = $('#saveMessage');
+savedTimer = 5;
 
-// Get the value of the input textarea
-var input = $('#input')
+// Render localstorage values
+$('#input1').text(localStorage.getItem('9'));
+$('#input2').text(localStorage.getItem('10'));
+$('#input3').text(localStorage.getItem('11'));
+$('#input4').text(localStorage.getItem('12'));
+$('#input5').text(localStorage.getItem('13'));
+$('#input6').text(localStorage.getItem('14'));
+$('#input7').text(localStorage.getItem('15'));
+$('#input8').text(localStorage.getItem('16'));
+$('#input9').text(localStorage.getItem('17'));
 
-$( ".saveBtn" ).on( "click", function() {
-    console.log(input.val());
-    localStorage.setItem('event', JSON.stringify(input.val()));
-    $( ".timeblock1" ).text(input.val());
+// Button function 
+$( ".saveBtn" ).on( "click", saveValue);
+function saveValue(){
+    var id = this.parentElement.parentElement.id; // get the sender's id to save it . 
+    var val = this.parentElement.parentElement.children[1].children[0].value; // get the value. 
+    localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+    savedTimer = 5;
+    successMsg.text("Appointment saved to localStorage")
+    var hideSaved = setInterval(function () {
+      savedTimer--;
+          console.log(savedTimer);
+          if (savedTimer <= 0) {
+            clearInterval(hideSaved);
+            successMsg.css('display', 'none') 
+            return; 
+          }
+    }, 1000);
+  }
+
+
+
+
+arrayOfHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+
+
+function init() {
+  arrayOfHours.forEach(function(el) {
+  var rowEl = $('#' + el);
+  if(el == today.hour()){
+    rowEl.children().eq(1).addClass('present'); 
+  } else if(el < today.hour()){
+    rowEl.children().eq(1).addClass('past');
+  } else if(el > today.hour()){
+    rowEl.children().eq(1).addClass('future');
+  }
 });
+}
 
-// var test = localStorage.setItem('event', JSON.stringify(input.val()));
-
-// $(document).ready(function(){
-// //    var storage = localStorage.getItem('event', JSON.stringify(input.val()));
-// // console.log(storage);
-//     if(storage != null);
-//     $( ".timeblock1" ).text(test);
-//     }
-// );
+init();
 
 
 
 
 
 
-// $(document).ready(function(){
-//     localStorage.setItem('event', JSON.stringify(input.val()));
-//     $( ".saveBtn" ).on( "click", function() {
-//         $( ".timeblock1" ).text.JSON.stringify(input.val());
-//     if(localStorage.getItem("event") == ""){
-//         localStorage.getItem("event", input);
-//       }else{
-//       $(".timeblock1").text(localStorage.setItem("event", " "));
-//       }
-//     });
-// });
-
-    
-
-// $( ".saveBtn" ).on( "click", function() {
-// if(input.val() === 12) {
-//     console.log("aew");
-// }
-// // $( ".timeblock" ).addClass( "future" );
-// });
-
-
-arrayOfHours = [9, 10, 11, 12, 1, 2, 3, 4, 5];
-
-
-
-
-//initialize
-  //load data from localStorage
-  // Data key "time"
 
   ///Create Timeslots
   //create array with the hours
   //loop the array of hours to create the rows
-    
-    var titleEl = $('<h1>');// var titleEl = document.createElement("h1");
-    //create the tag for the row
-    //create the tag for hour
-    //create the tag for input 
-    //create the tag for button 
+        
+    //create TAG for row/hour/input/button 
 
-    //give class to row 
-    //give class to hour...
+    //give class to row/hour/input/button 
 
-    //create a dataset in the element to keep the hour in the Row
+    //create a dataset to keep the hour in the (row)
 
     //style timeslots based on the hour comparing to "today.hour()"
-    // if(arrayofHours[i] == today.hour()){
-    //   //timeblockelement.addClass('past');
-    // } else if(arrayofHours[i] == today.hour()){
-    //   //timeblockelement.addClass('present');
-    // } else if(arrayofHours[i] == today.hour()){
-    //   //timeblockelement.addClass('future');
-    // }
 
-    //append all tags
-
-
-  // Save the event in local storage when the save button is clicked in that timeblock.
-  // Data key "time"
+  
+      //append all tags
+  
+    // add event listener to add local storage when the save button is clicked in specific timeblock.(Data key "time")
