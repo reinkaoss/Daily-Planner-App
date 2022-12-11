@@ -11,9 +11,9 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
-  border: none;
   overflow: auto;
-  outline: none;
+  width: 100%;
+  height: 100%;
 }
 
 .jumbotron {
@@ -34,7 +34,6 @@ textarea {
 }
 
 .row {
-  white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
 }
@@ -61,6 +60,9 @@ textarea {
 }
 
 .saveBtn {
+  position: relative;
+  width: 100%;
+  height: 100%;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -80,25 +82,12 @@ textarea {
   border-bottom-left-radius:10px;
 }
 
-.saveblock {
-  background-color: lightskyblue;
-  border-bottom-right-radius:10px;
-  background-size: cover;
-  
-}
-
-.saveblock img {
-  width: 15px;
-}
-
 .container {
-  padding: 5px;
-  
+  padding: 5px;  
 }
 
 .timestamp {
   border-top: 3px black dotted;
-
   display: flex;
   justify-content: center;
   align-items: center;
