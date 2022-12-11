@@ -98,5 +98,17 @@ textarea {
 
 .timestamp {
   border-top: 3px black dotted;
-  border-bottom: 3px black dotted;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#saveMessage {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: bolder;
+  color: green;
 }
