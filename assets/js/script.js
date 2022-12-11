@@ -38,7 +38,12 @@ function saveValue(){
             successMsg.css('display', 'none') 
           }
     }, 1000);
+    var showSaved = setInterval(function () {
+      successMsg.css('display', 'flex') 
+      clearInterval(showSaved);
+    }, 1000);
   }
+
 
 
 
