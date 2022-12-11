@@ -16,6 +16,12 @@ $('#input7').text(localStorage.getItem('15'));
 $('#input8').text(localStorage.getItem('16'));
 $('#input9').text(localStorage.getItem('17'));
 
+$( ".saveBtn" ).on('click', function( event ) {
+  successMsg.text("Appointment saved to localStorage")
+  event.preventDefault();
+  return;
+});
+
 // Button function 
 $( ".saveBtn" ).on( "click", saveValue);
 function saveValue(){
@@ -23,14 +29,13 @@ function saveValue(){
     var val = this.parentElement.parentElement.children[1].children[0].value; // get the value. 
     localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
     savedTimer = 5;
-    successMsg.text("Appointment saved to localStorage")
+    
     var hideSaved = setInterval(function () {
       savedTimer--;
           console.log(savedTimer);
           if (savedTimer <= 0) {
             clearInterval(hideSaved);
             successMsg.css('display', 'none') 
-            return; 
           }
     }, 1000);
   }
