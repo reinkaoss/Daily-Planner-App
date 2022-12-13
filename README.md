@@ -17,12 +17,10 @@ The major reason I created this project, among other things, was to better grasp
 
 N/A
 
-
 ## Usage
+The below image illustrates the color coding in action based on the user's current time-zone
 
-    ```The below image illustrates the color coding in action based on the user's current time-zone
-    ![alt text](/images/Screenshot.png)
-    ```
+![Main UI](/images/Screenshot.png)
 
 ## Credits
 
