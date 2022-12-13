@@ -58,3 +58,5 @@ SOFTWARE.
 
 * Color coding based on real-time hours fully functional.
 * LocalStorage able to maintain and/or replace user's input even after the browser is fully reloaded. 
+
+[Deployed application](https://reinkaoss.github.io/Daily-Planner-App/)
